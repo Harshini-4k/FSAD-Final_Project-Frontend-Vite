@@ -23,7 +23,7 @@ function ForgotPassword() {
 
     try {
       // TODO: Implement forgot password API call
-      // const response = await axios.post("http://localhost:8080/api/forgot-password", { email });
+      // const response = await axios.post("https://fsadfinalproject.up.railway.app/api/forgot-password", { email });
 
       // For now, show a placeholder message
       setMessage("If an account with that email exists, a password reset link has been sent.");

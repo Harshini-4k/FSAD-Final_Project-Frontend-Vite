@@ -57,7 +57,7 @@ function UserDashboard() {
     setLoading(true);
     try {
       console.log("Fetching certifications for user:", userId);
-      const response = await axios.get(`http://localhost:8080/api/certifications/user/${userId}`);
+      const response = await axios.get(`https://fsadfinalproject.up.railway.app/api/certifications/user/${userId}`);
       console.log("Certifications fetched:", response.data);
       setCertificates(response.data);
       calculateStats(response.data);
@@ -106,7 +106,7 @@ function UserDashboard() {
 
   const fetchSuggestedCertificates = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/api/certifications/recommended/harshini");
+      const response = await axios.get("https://fsadfinalproject.up.railway.app/api/certifications/recommended/harshini");
       setSuggestions(response.data);
     } catch (error) {
       console.error("Error fetching Suggested Certificates:", error);
@@ -158,7 +158,7 @@ function UserDashboard() {
       
       if (editingCert) {
         // Update existing
-        const response = await axios.put(`http://localhost:8080/api/certifications/${editingCert.id}`, {
+        const response = await axios.put(`https://fsadfinalproject.up.railway.app/api/certifications/${editingCert.id}`, {
           ...formData,
           userId: user.id,
         });
@@ -166,7 +166,7 @@ function UserDashboard() {
         alert("Certification updated successfully!");
       } else {
         // Add new
-        const response = await axios.post("http://localhost:8080/api/certifications", {
+        const response = await axios.post("https://fsadfinalproject.up.railway.app/api/certifications", {
           ...formData,
           userId: user.id,
           status: "ACTIVE",
@@ -188,7 +188,7 @@ function UserDashboard() {
   const handleDeleteCertification = async (certId) => {
     if (window.confirm("Are you sure you want to delete this certification?")) {
       try {
-        await axios.delete(`http://localhost:8080/api/certifications/${certId}`);
+        await axios.delete(`https://fsadfinalproject.up.railway.app/api/certifications/${certId}`);
         alert("Certification deleted successfully!");
         fetchUserCertifications(user.id);
       } catch (error) {

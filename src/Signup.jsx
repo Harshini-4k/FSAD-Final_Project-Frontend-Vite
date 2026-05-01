@@ -74,7 +74,7 @@ function Signup() {
     setLoading(true);
 
     try {
-      const res = await axios.post("http://localhost:8080/api/signup", userData);
+      const res = await axios.post("https://fsadfinalproject.up.railway.app/api/signup", userData);
       setSuccess(res.data.message || "Signup successful!");
       setTimeout(() => {
         navigate("/login");

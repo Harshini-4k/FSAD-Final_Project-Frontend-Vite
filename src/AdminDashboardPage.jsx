@@ -74,7 +74,7 @@ function AdminDashboardPage() {
     setLoading(true);
     try {
       console.log("Fetching all certifications from admin dashboard");
-      const response = await axios.get("http://localhost:8080/api/certifications");
+      const response = await axios.get("https://fsadfinalproject.up.railway.app/api/certifications");
       console.log("Certifications fetched:", response.data);
       setCertificates(response.data);
       calculateStats(response.data);
@@ -174,7 +174,7 @@ function AdminDashboardPage() {
   const handleInitializeSampleData = async () => {
     if (window.confirm("Are you sure? This will add sample certification data.")) {
       try {
-        const response = await axios.post("http://localhost:8080/api/certifications/sample/init");
+        const response = await axios.post("https://fsadfinalproject.up.railway.app/apicertifications/sample/init");
         alert(response.data.message);
         fetchAllCertifications();
       } catch (error) {
@@ -222,10 +222,10 @@ function AdminDashboardPage() {
 
     try {
       if (editingCert) {
-        await axios.put(`http://localhost:8080/api/certifications/${editingCert.id}`, formData);
+        await axios.put(`/certifications/${editingCert.id}`, formData);
         alert("Certification updated successfully!");
       } else {
-        await axios.post("http://localhost:8080/api/certifications", formData);
+        await axios.post("https://fsadfinalproject.up.railway.app/api/certifications", formData);
         alert("Certification added successfully!");
       }
       handleCloseDialog();
@@ -239,7 +239,7 @@ function AdminDashboardPage() {
   const handleDeleteCertification = async (certId) => {
     if (window.confirm("Are you sure you want to delete this certification?")) {
       try {
-        await axios.delete(`http://localhost:8080/api/certifications/${certId}`);
+        await axios.delete(`https://fsadfinalproject.up.railway.app/api/certifications/${certId}`);
         alert("Certification deleted successfully!");
         fetchAllCertifications();
       } catch (error) {

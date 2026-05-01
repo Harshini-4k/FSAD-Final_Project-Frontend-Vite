@@ -73,7 +73,7 @@ function AddCertification() {
     setLoading(true);
 
     try {
-      await axios.post("http://localhost:8080/api/certifications", certification);
+      await axios.post("https://fsadfinalproject.up.railway.app/api/certifications", certification);
 
       alert("Certification added successfully!");
 
